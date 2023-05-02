@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Fragment } from "react";
+import './guessnum.css'
 
 
 
@@ -33,7 +34,7 @@ export function Guessnum(){
             else if(number<random){
                 alert("That's not Right One, Please guess larger no.")
             }
-            console.log(count)
+            
 
             
     }
@@ -41,14 +42,18 @@ export function Guessnum(){
     function handleStart(){
         setcount(1);
         setnumber('')
+        setrandom(Math.floor(Math.random()*10)+1)
     }
 
     return(
         <Fragment>
-            <input type="number" placeholder="Guess Number between 0-10" alt="" value={number} onChange={handleChange}/>
-            <p>Random No= {random}</p>
-            <button onClick={handleSubmit}>Submit</button>
-            <button onClick={handleStart}>Start</button>
+            <div>
+                <p id="p1">Guess the Number</p>
+                <input className="inpt1" type="number" placeholder="Guess Number between 0-10" alt="" value={number} onChange={handleChange}/>
+                {/* <p>Random No= {random}</p> */}
+                <button id="submit" onClick={handleSubmit}>Submit</button>
+                <button id="start" onClick={handleStart}>Start</button>
+            </div>
         </Fragment>
     )
 }
